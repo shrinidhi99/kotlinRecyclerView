@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
@@ -37,7 +38,38 @@ class BlogRecyclerAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     }
 
     fun submitList(blogList: List<BlogPost>) {
+        val oldList = items
+        val diffResult: DiffUtil.DiffResult = DiffUtil.calculateDiff(
+            BlogItemDiffCallback(
+                oldList,
+                blogList
+            )
+        )
         items = blogList
+        diffResult.dispatchUpdatesTo(this)
+    }
+
+
+    class BlogItemDiffCallback(
+        var oldBlogList: List<BlogPost>,
+        var newBlogList: List<BlogPost>
+    ) : DiffUtil.Callback() {
+        override fun areItemsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean {
+            return (oldBlogList[oldItemPosition].title == newBlogList[newItemPosition].title)
+        }
+
+        override fun getOldListSize(): Int {
+            return oldBlogList.size
+        }
+
+        override fun getNewListSize(): Int {
+            return newBlogList.size
+        }
+
+        override fun areContentsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean {
+            return oldBlogList[oldItemPosition].equals(newBlogList[newItemPosition])
+        }
+
     }
 
     class BlogViewHolder constructor(
