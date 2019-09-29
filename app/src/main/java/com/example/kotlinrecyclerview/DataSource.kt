@@ -50,7 +50,7 @@ class DataSource {
             list.add(
                 BlogPost(
                     "MacBook Air",
-                    "13.3" Retina Display features a 2560 x 1600 screen resolution and a 16:10 aspect ratio for 227 pixels per inch (PPI)",
+                    "13.3 Retina Display features a 2560 x 1600 screen resolution and a 16:10 aspect ratio for 227 pixels per inch (PPI)",
                     "https://media.wired.com/photos/5bd883dc5b66a763e54f0b22/191:100/pass/macbookair3.jpg",
                     "APPLE"
                 )
@@ -66,7 +66,7 @@ class DataSource {
             list.add(
                 BlogPost(
                     "AORUS 15-W9-7UK0252W Gaming Laptop",
-                    "Intel Core i7-8750H 2.2GHz, 16GB, 2TB HDD, 512GB SSD, 15.6" Full HD 1920 x 1080, NVIDIA RTX 2060 6GB, Windows 10 Home",
+                    "Intel Core i7-8750H 2.2GHz, 16GB, 2TB HDD, 512GB SSD, 15.6 Full HD 1920 x 1080, NVIDIA RTX 2060 6GB, Windows 10 Home",
                     "https://img.ebyrcdn.net/910870-877880-800.jpg",
                     "AORUS"
                 )
